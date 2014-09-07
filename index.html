@@ -7,15 +7,16 @@
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
     <section class="container">
       <section class="board">
-        <div data-role="space-1" class="game-button top-left"></div>
-        <div data-role="space-2" class="game-button top-right fix-ib"></div>
-        <div data-role="space-3" class="game-button bottom-left"></div>
-        <div data-role="space-4" class="game-button bottom-right fix-ib"></div>
+        <div data-game-button="1" class="game-button top-left"></div>
+        <div data-game-button="2" class="game-button top-right fix-ib"></div>
+        <div data-game-button="3" class="game-button bottom-left"></div>
+        <div data-game-button="4" class="game-button bottom-right fix-ib"></div>
       </section>
     </section>
   </body>
