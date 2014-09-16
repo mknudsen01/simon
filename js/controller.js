@@ -25,6 +25,7 @@ Simon.Controller = function(opts){
   this.buttonClicked = function(e){
     var clickedButton = parseInt(e.target.dataset.gameButton);
     self.game.checkGuess(clickedButton);
+    self.view.lightSquare(clickedButton);
   };
 
   this.correctGuess = function(){
