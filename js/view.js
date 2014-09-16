@@ -1,7 +1,7 @@
 var Simon = Simon || {};
 
 Simon.View = function() {
-
+  this.scoreHolder = $('[data-score]');
 };
 
 Simon.View.prototype = {
@@ -15,7 +15,7 @@ Simon.View.prototype = {
     console.log(squareNumber);
     window.setTimeout( function() {
       $('[data-game-button='+squareNumber+']').removeClass('active');
-    }, 1000);
+    }, 500);
   },
 
   showNextInSequence: function(sequence, index) {
@@ -29,6 +29,10 @@ Simon.View.prototype = {
   },
 
   restart: function(){
+    this.scoreHolder.text(0);
+  },
 
+  updateScore: function(newScore){
+    this.scoreHolder.text( newScore );
   }
 };

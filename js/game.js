@@ -27,7 +27,7 @@ Simon.Game.prototype = {
   },
 
   correctGuess: function(){
-    this.totalScore += 1;
+    this.totalScore += (1 * this.scoreMultiplier() );
     this.turnScore += 1;
     document.dispatchEvent( new Event("correct") );
     if( this.isTurnFinished() ){
@@ -47,6 +47,14 @@ Simon.Game.prototype = {
 
   isTurnFinished: function() {
     return this.turnScore == this.sequence.length;
+  },
+
+  getScore: function(){
+    return this.totalScore;
+  },
+
+  scoreMultiplier: function() {
+    return this.sequence.length;
   }
 
 
