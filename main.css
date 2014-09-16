@@ -11,6 +11,7 @@
   box-sizing: border-box;
   display: inline-block;
   height: 150px;
+  transition: .5s all ease;
   width: 50%;
 }
 
@@ -22,3 +23,8 @@
 .top-right    { background-color: red;   }
 .bottom-right { background-color: blue;  }
 .bottom-left  { background-color: yellow;}
+
+.active {
+  opacity: .5;
+  transition: .5s all ease;
+}
