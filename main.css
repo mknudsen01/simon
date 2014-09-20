@@ -30,15 +30,15 @@ body {
   margin-left: -4px;
 }
 
-.top-left     { background-color: green; }
-.top-right    { background-color: red;   }
-.bottom-right { background-color: blue;  }
-.bottom-left  { background-color: yellow;}
+.top-left     { background-color: #009900; }
+.top-right    { background-color: #990000; }
+.bottom-left  { background-color: #999900; }
+.bottom-right { background-color: #000099; }
 
-.active {
-  opacity: .4;
-  transition: .5s all ease;
-}
+.active-button-1 { background-color: #00FF00; }
+.active-button-2 { background-color: #FF0000; }
+.active-button-3 { background-color: #FFFF00; }
+.active-button-4 { background-color: #0088FF; }
 
 .large-text {
   color: #333;

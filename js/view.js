@@ -11,10 +11,10 @@ Simon.View.prototype = {
   },
 
   lightSquare: function(squareNumber){
-    $('[data-game-button='+squareNumber+']').addClass('active');
+    $('[data-game-button='+squareNumber+']').addClass('active-button-'+squareNumber);
     console.log(squareNumber);
     window.setTimeout( function() {
-      $('[data-game-button='+squareNumber+']').removeClass('active');
+      $('[data-game-button='+squareNumber+']').removeClass('active-button-'+squareNumber);
     }, 500);
   },
 
