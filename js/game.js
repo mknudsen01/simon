@@ -4,6 +4,7 @@ Simon.Game = function(){
   this.totalScore = 0;
   this.turnScore = 0;
   this.sequence = [];
+  this.currentTimeout;
 };
 
 Simon.Game.prototype = {
@@ -19,6 +20,7 @@ Simon.Game.prototype = {
   checkGuess: function(guess){
     var currentPosition = this.turnScore;
     nextCorrectGuess = this.sequence[currentPosition];
+    this.clearCurrentTimeout();
     if (guess == nextCorrectGuess){
      this.correctGuess();
     } else {
@@ -26,12 +28,19 @@ Simon.Game.prototype = {
     }
   },
 
+  clearCurrentTimeout: function(){
+    window.clearTimeout(this.currentTimeout);
+  },
+
   correctGuess: function(){
     this.totalScore += (1 * this.scoreMultiplier() );
     this.turnScore += 1;
     document.dispatchEvent( new Event("correct") );
     if( this.isTurnFinished() ){
-      document.dispatchEvent( new Event("newTurn") );
+      var timeoutID = window.setTimeout( function() {
+        document.dispatchEvent( new Event("newTurn") );
+      }, 500);
+      this.currentTimeout = timeoutID;
     }
   },
 
