@@ -9,5 +9,5 @@
 
   Simon.controller = new Simon.Controller(opts);
   Simon.controller.bindListeners();
-  Simon.controller.executeTurn();
+  Simon.controller.beginSimonsTurn();
 });

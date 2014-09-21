@@ -8,7 +8,7 @@ Simon.Game = function(){
 };
 
 Simon.Game.prototype = {
-  nextTurn: function() {
+  nextRound: function() {
     this.turnScore = 0;
     this.sequence.push(this.randomNumberBetweenOneAnd(4));
   },

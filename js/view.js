@@ -13,7 +13,6 @@ Simon.View.prototype = {
 
   lightSquare: function(squareNumber){
     $('[data-game-button='+squareNumber+']').addClass('active-button-'+squareNumber);
-    console.log(squareNumber);
 
     var timeoutID = window.setTimeout( function() {
       $('[data-game-button='+squareNumber+']').removeClass('active-button-'+squareNumber);
@@ -27,9 +26,12 @@ Simon.View.prototype = {
       self.lightSquare(sequence[index]);
       if(sequence.length > index + 1){
         self.showNextInSequence(sequence, index + 1);
+      } else {
+        document.dispatchEvent( new Event("sequenceDisplayFinished") );
       }
     }, 1000);
     this.timeoutIDs.push(timeoutID);
+
   },
 
   restart: function(){

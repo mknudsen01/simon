@@ -5,22 +5,33 @@ Simon.Controller = function(opts){
   this.game = opts.game;
   this.view = opts.view;
 
-  this.executeTurn = function() {
-    console.log("NEW TURN");
-    // turn off listeners for clicks?
-    // tell game to start turn
-    self.game.nextTurn();
-    // tell view to show the sequence, taking the game as an argument?
+  this.beginSimonsTurn = function() {
+    self.unbindPlayerClickListeners();
+    self.game.nextRound();
     self.view.showSequence(self.game);
-    // turn listeners on for the clicks/have some checker for a click.
   };
 
-  this.bindListeners = function(){
+  this.bindPlayerClickListeners = function(){
     document.querySelector('.board').addEventListener('click', this.buttonClicked);
     document.addEventListener('correct', this.correctGuess);
     document.addEventListener('wrong', this.wrongGuess);
-    document.addEventListener('newTurn', this.executeTurn);
+    document.addEventListener('newTurn', this.beginSimonsTurn);
   };
+
+  this.beginPlayerTurn = function(){
+    self.bindPlayerClickListeners();
+  };
+
+  this.bindListeners = function(){
+    document.addEventListener('sequenceDisplayFinished', this.beginPlayerTurn);
+  };
+
+  this.unbindPlayerClickListeners = function(){
+    document.querySelector('.board').removeEventListener('click', this.buttonClicked);
+    document.removeEventListener('correct', this.correctGuess);
+    document.removeEventListener('wrong', this.wrongGuess);
+    document.removeEventListener('newTurn', this.beginSimonsTurn);
+  },
 
   this.buttonClicked = function(e){
     var clickedButton = parseInt( e.target.dataset.gameButton );
@@ -29,25 +40,22 @@ Simon.Controller = function(opts){
   };
 
   this.correctGuess = function(){
-    console.log("YOU GUESSED CORRECTLY");
     self.view.updateScore( self.currentScore() );
   };
 
   this.wrongGuess = function(){
-    console.log("YOU GUESSED WRONG");
     self.gameOver();
-    // self.restartGame();
   };
 
   this.gameOver = function(){
     self.view.gameOver();
     self.bindModalListeners();
-  }
+  };
 
   this.restartGame = function(){
     self.view.restart();
     self.game.restart();
-    self.executeTurn();
+    self.beginSimonsTurn();
   };
 
   this.currentScore = function(){
