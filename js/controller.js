@@ -35,16 +35,34 @@ Simon.Controller = function(opts){
 
   this.wrongGuess = function(){
     console.log("YOU GUESSED WRONG");
-    self.restartGame();
+    self.gameOver();
+    // self.restartGame();
   };
 
+  this.gameOver = function(){
+    self.view.gameOver();
+    self.bindModalListeners();
+  }
+
   this.restartGame = function(){
-    self.game.restart();
     self.view.restart();
+    self.game.restart();
     self.executeTurn();
   };
 
   this.currentScore = function(){
     return this.game.getScore();
+  };
+
+  this.bindModalListeners = function(){
+    document.querySelector('[data-role="restart-game"]').addEventListener("click", this.restartGame);
+    document.querySelector('[data-role="cancel"]').addEventListener("click", this.restartGame);
+    document.addEventListener('keyup', this.checkKeyupForRestart);
+  };
+
+  this.checkKeyupForRestart = function(e){
+    if(e.keyCode == 13 || e.keyCode == 27){
+      self.restartGame();
+    }
   };
 };

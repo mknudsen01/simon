@@ -35,6 +35,7 @@ Simon.View.prototype = {
   restart: function(){
     this.scoreHolder.text(0);
     this.clearTimeouts();
+    this.removeModal();
   },
 
   updateScore: function(newScore){
@@ -48,5 +49,27 @@ Simon.View.prototype = {
       nextTimeout = null;
     }
     this.timeoutIDs = [];
+  },
+
+  gameOver: function(){
+    this.resetModalClasses();
+    $('.modal').show();
+    $('.modal').addClass('animated fadeInDownBig');
+  },
+
+  removeModal: function(){
+    this.resetModalClasses();
+    $('.modal').addClass('animated fadeOutDownBig');
+    $('.modal').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', this.hideModal);
+  },
+
+  hideModal: function(){
+    $('.modal').hide();
+  },
+
+  resetModalClasses: function(){
+    $('.modal').removeClass('animated');
+    $('.modal').removeClass('fadeInDownBig');
+    $('.modal').removeClass('fadeOutDownBig');
   }
 };
