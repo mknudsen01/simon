@@ -11,6 +11,7 @@ body {
 }
 
 .container {
+  margin-top: 70px;
   width: 100%;
 }
 
@@ -51,7 +52,7 @@ body {
 .modal {
   display: none;
   position: absolute;
-  top: 63px;
+  top: 125px;
   left: 324px;
   width: 50%;
   color: #444;
