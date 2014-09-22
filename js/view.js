@@ -73,5 +73,26 @@ Simon.View.prototype = {
     $('.modal').removeClass('animated');
     $('.modal').removeClass('fadeInDownBig');
     $('.modal').removeClass('fadeOutDownBig');
+  },
+
+  simonsTurn: function(){
+    this.resetCurrentPlayerClasses();
+    $('[data-role="current-player"]').hide();
+    $('[data-role="current-player"]').text('My');
+    $('[data-role="current-player"]').addClass('animated fadeIn');
+    $('[data-role="current-player"]').show();
+  },
+
+  playersTurn: function(){
+    this.resetCurrentPlayerClasses();
+    $('[data-role="current-player"]').hide();
+    $('[data-role="current-player"]').text('Your');
+    $('[data-role="current-player"]').addClass('animated fadeIn');
+    $('[data-role="current-player"]').show();
+  },
+
+  resetCurrentPlayerClasses: function(){
+    $('[data-role="current-player"]').removeClass('animated');
+    $('[data-role="current-player"]').removeClass('fadeIn');
   }
 };

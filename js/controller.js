@@ -8,6 +8,7 @@ Simon.Controller = function(opts){
   this.beginSimonsTurn = function() {
     self.unbindPlayerClickListeners();
     self.game.nextRound();
+    self.view.simonsTurn();
     self.view.showSequence(self.game);
   };
 
@@ -20,6 +21,7 @@ Simon.Controller = function(opts){
 
   this.beginPlayerTurn = function(){
     self.bindPlayerClickListeners();
+    self.view.playersTurn();
   };
 
   this.bindListeners = function(){

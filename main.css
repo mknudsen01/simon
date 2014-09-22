@@ -21,10 +21,22 @@ body {
 }
 
 .game-button {
-  display: inline-block;
   height: 150px;
   transition: 1s all ease;
   width: 50%;
+  position: relative;
+}
+
+.up {
+  top: -4px;
+}
+
+.centered {
+  auto: 0 auto;
+}
+
+.ib {
+  display: inline-block;
 }
 
 .fix-ib {
@@ -41,12 +53,11 @@ body {
 .active-button-3 { background-color: #FFFF00; }
 .active-button-4 { background-color: #0088FF; }
 
-.large-text {
+.text-large {
   color: #333;
   font-family: sans-serif;
   font-size: 3em;
   font-weight: 700;
-  text-align: center;
 }
 
 .modal {
@@ -109,6 +120,19 @@ body {
   background-color: #354b60;
   transition: .5s ease all;
 }
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row        {  width: 100%; }
+.one-half   {  width: 50%;  }
+
+
 
 .animated {
   -webkit-animation-duration: 1s;
@@ -185,4 +209,19 @@ body {
 .fadeOutDownBig {
   -webkit-animation-name: fadeOutDownBig;
           animation-name: fadeOutDownBig;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
