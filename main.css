@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  margin-top: 70px;
+  margin-top: 50px;
   width: 100%;
 }
 
@@ -63,7 +63,7 @@ body {
 .modal {
   display: none;
   position: absolute;
-  top: 125px;
+  top: 145px;
   left: 324px;
   width: 50%;
   color: #444;
@@ -129,7 +129,10 @@ body {
   text-align: center;
 }
 
-.row        {  width: 100%; }
+.row        {
+  width: 100%;
+  padding: 20px;
+}
 .one-half   {  width: 50%;  }
 
 

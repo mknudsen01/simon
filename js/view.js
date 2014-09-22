@@ -16,7 +16,7 @@ Simon.View.prototype = {
 
     var timeoutID = window.setTimeout( function() {
       $('[data-game-button='+squareNumber+']').removeClass('active-button-'+squareNumber);
-    }, 500);
+    }, 400);
     this.timeoutIDs.push(timeoutID);
   },
 
@@ -27,11 +27,17 @@ Simon.View.prototype = {
       if(sequence.length > index + 1){
         self.showNextInSequence(sequence, index + 1);
       } else {
-        document.dispatchEvent( new Event("sequenceDisplayFinished") );
+        self.sequenceFinished();
       }
-    }, 1000);
+    }, 700);
     this.timeoutIDs.push(timeoutID);
+  },
 
+  sequenceFinished: function(){
+    var timeoutID = window.setTimeout( function() {
+      document.dispatchEvent( new Event("sequenceDisplayFinished") );
+    }, 400);
+    this.timeoutIDs.push(timeoutID);
   },
 
   restart: function(){
