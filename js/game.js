@@ -39,7 +39,7 @@ Simon.Game.prototype = {
     if( this.isTurnFinished() ){
       var timeoutID = window.setTimeout( function() {
         document.dispatchEvent( new Event("newTurn") );
-      }, 500);
+      }, 400);
       this.currentTimeout = timeoutID;
     }
   },
@@ -65,8 +65,4 @@ Simon.Game.prototype = {
   scoreMultiplier: function() {
     return this.sequence.length;
   }
-
-
-
-
 };
