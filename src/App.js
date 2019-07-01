@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>hello</h1>
       {scores.map(score => (
         <p key={score._id}>
           {score.initials}: {score.score}
