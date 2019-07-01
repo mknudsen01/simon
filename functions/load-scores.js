@@ -1,8 +1,8 @@
-const database = require("diskdb");
+const db = require("./server");
 
 exports.handler = async (event, context) => {
   try {
-    const db = database.connect("functions/db", ["scores"]);
+    console.log({ db });
     const scores = db.scores.find();
     return {
       statusCode: 200,
