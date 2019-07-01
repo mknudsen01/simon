@@ -2,7 +2,7 @@ const database = require("diskdb");
 
 exports.handler = async (event, context) => {
   try {
-    const db = database.connect("db", ["scores"]);
+    const db = database.connect("functions/db", ["scores"]);
     const scores = db.scores.find();
     return {
       statusCode: 200,
