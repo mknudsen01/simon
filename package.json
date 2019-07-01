@@ -1,0 +1,47 @@
+{
+  "name": "simon",
+  "version": "1.0.0",
+  "description": "simple version of the classic game",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mknudsen01/simon.git"
+  },
+  "keywords": [
+    "simon",
+    "game"
+  ],
+  "author": "mknudsen01@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mknudsen01/simon/issues"
+  },
+  "homepage": "https://github.com/mknudsen01/simon#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "diskdb": "^0.1.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "proxy": "http://localhost:34567",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
